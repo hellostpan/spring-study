@@ -1,5 +1,7 @@
 package com.stpan.springstudy.handler;
 
+import com.stpan.springstudy.utils.Result;
+import com.stpan.springstudy.utils.ResultUtil;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -22,12 +24,10 @@ public class GlobalExceptionHandler {
      * @throws Exception
      */
     @ExceptionHandler(value=Exception.class)
-    public String allExceptionHandler(Exception e)
+    public Result allExceptionHandler(Exception e)
     {
         e.printStackTrace();
-//        ex.printStackTrace();
-        System.out.println("----------------------------------------");
-        return "服务器异常，请联系管理员！";
+        return  ResultUtil.failed("服务器异常，请联系管理员！");
     }
 
     public static boolean isAjax(HttpServletRequest httpRequest){

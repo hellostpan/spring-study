@@ -1,7 +1,9 @@
 package com.stpan.springstudy.controller;
-
 import com.alibaba.druid.support.json.JSONUtils;
+import com.stpan.springstudy.pojo.User;
 import org.junit.Before;
+import com.stpan.springstudy.utils.JsonUtils;
+import com.stpan.springstudy.utils.Result;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,7 @@ public class UserControllerTest {
     public void setupMockMvc() throws Exception {
         mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
     }
+
     @Test
     public void userList() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/userList"))
@@ -44,10 +47,10 @@ public class UserControllerTest {
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/testTest"))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
-        .andReturn();
+                .andReturn();
         String s = result.getResponse().getContentAsString();
-        Map<String,Object> user = (Map<String, Object>) JSONUtils.parse(s);
-        System.out.println("-------------"+user.get("id"));
+        User user = JsonUtils.jsonToPojo(s,User.class);
+        System.out.println("-------------" + user.getId());
 
     }
 }

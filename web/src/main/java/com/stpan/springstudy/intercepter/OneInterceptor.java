@@ -18,7 +18,7 @@ public class OneInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         System.out.println("被one拦截，放行...");
-        return false;
+        return true;
     }
 
     /**

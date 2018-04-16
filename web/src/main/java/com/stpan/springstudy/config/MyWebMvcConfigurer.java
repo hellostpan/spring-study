@@ -19,7 +19,7 @@ import java.util.List;
  * author:  STPAN
  * time:    2018/4/12 19:47
  */
-@EnableAutoConfiguration
+@Configuration
 public class MyWebMvcConfigurer implements WebMvcConfigurer {
 
 

@@ -4,6 +4,9 @@ import com.stpan.springstudy.pojo.User;
 import com.stpan.springstudy.pojo.UserExample;
 import com.stpan.springstudy.repository.ipl.UserRepository;
 import com.stpan.springstudy.service.UserService;
+import com.stpan.springstudy.utils.Result;
+import com.stpan.springstudy.utils.ResultEnum;
+import com.stpan.springstudy.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.transaction.annotation.Propagation;
@@ -51,9 +54,9 @@ public class UserController {
     }
 
     @GetMapping(value = "/userList")
-    public List<User> userList() {
+    public Result userList() {
         System.out.println("--------userList--------");
-        return userService.queryUserList(new UserExample());
+        return ResultUtil.success(userService.queryUserList(new UserExample()));
     }
 
     @GetMapping(value = "/userListPage")
@@ -76,7 +79,6 @@ public class UserController {
         user.setName("stp");
         user.setBirthday(new Date());
         userService.saveUser(user);
-        int a = 1 / 0;
         userService.deleteUser(user.getId());
         return "success";
     }
