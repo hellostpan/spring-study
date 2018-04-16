@@ -81,6 +81,14 @@ public class UserController {
         return "success";
     }
 
+    @GetMapping("/testTest")
+    public User testTest() {
+        User user = new User();
+        user.setBirthday(new Date());
+        user.setId(10);
+        user.setName("hello");
+        return user;
+    }
 
 
 }
