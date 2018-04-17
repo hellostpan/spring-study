@@ -79,7 +79,6 @@ public class UserController {
         user.setName("stp");
         user.setBirthday(new Date());
         userService.saveUser(user);
-        userService.deleteUser(user.getId());
         return "success";
     }
 

@@ -1,9 +1,13 @@
 package com.stpan.springstudy.controller;
-import com.alibaba.druid.support.json.JSONUtils;
+
 import com.stpan.springstudy.pojo.User;
-import org.junit.Before;
 import com.stpan.springstudy.utils.JsonUtils;
-import com.stpan.springstudy.utils.Result;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.mgt.DefaultSecurityManager;
+import org.apache.shiro.realm.SimpleAccountRealm;
+import org.apache.shiro.subject.Subject;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +18,11 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
-import java.util.Map;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -45,12 +48,23 @@ public class UserControllerTest {
     @Test
     public void testTest() throws Exception {
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/testTest"))
-                .andDo(MockMvcResultHandlers.print())
+                // .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andReturn();
         String s = result.getResponse().getContentAsString();
-        User user = JsonUtils.jsonToPojo(s,User.class);
+        User user = JsonUtils.jsonToPojo(s, User.class);
         System.out.println("-------------" + user.getId());
 
     }
+
+    @Test
+    @Transactional
+    public void insert() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/userSave"))
+                // .andDo(MockMvcResultHandlers.print())
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string("success"));
+    }
+
+
 }
