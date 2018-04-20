@@ -1,6 +1,6 @@
 package com.stpan.springstudy.repository;
 
-import com.stpan.springstudy.domain.User;
+import com.stpan.springstudy.pojo.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;

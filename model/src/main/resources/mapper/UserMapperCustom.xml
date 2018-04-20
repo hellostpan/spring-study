@@ -2,6 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.stpan.springstudy.mapper.UserMapperCustom">
     <select id="selectUser" parameterType="java.lang.Integer" resultType="com.stpan.springstudy.pojo.User">
-        SELECT u.id,u.birthday,u.name FROM user u WHERE u.id = #{id,jdbcType=INTEGER}
+        SELECT u.id,u.birthday,u.user_name FROM user u WHERE u.id = #{id,jdbcType=INTEGER}
     </select>
 </mapper>

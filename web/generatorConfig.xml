@@ -10,6 +10,8 @@
 
         <commentGenerator>
             <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true" />
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
@@ -26,8 +28,10 @@
 
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.stpan.springstudy.mapper"  targetProject="model\src\main\java"/>
 
-        <table tableName="user">
-            <generatedKey column="id" sqlStatement="Mysql"/>
-        </table>
+        <table tableName="user"></table>
+        <table tableName="user_role"></table>
+        <table tableName="role"></table>
+        <table tableName="role_permission"></table>
+        <table tableName="permission"></table>
     </context>
 </generatorConfiguration>

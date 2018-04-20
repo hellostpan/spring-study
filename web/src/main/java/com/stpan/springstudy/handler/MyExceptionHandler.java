@@ -1,10 +1,5 @@
 package com.stpan.springstudy.handler;
 
-import com.stpan.springstudy.domain.JSONResult;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.method.support.ModelAndViewContainer;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

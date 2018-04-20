@@ -5,7 +5,6 @@ import com.stpan.springstudy.pojo.UserExample;
 import com.stpan.springstudy.repository.ipl.UserRepository;
 import com.stpan.springstudy.service.UserService;
 import com.stpan.springstudy.utils.Result;
-import com.stpan.springstudy.utils.ResultEnum;
 import com.stpan.springstudy.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

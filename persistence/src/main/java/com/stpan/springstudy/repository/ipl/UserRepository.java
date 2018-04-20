@@ -1,6 +1,7 @@
 package com.stpan.springstudy.repository.ipl;
 
-import com.stpan.springstudy.domain.User;
+
+import com.stpan.springstudy.pojo.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
